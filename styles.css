@@ -1,0 +1,336 @@
+:root {
+    --black: #000000;
+    --gray: rgb(186, 185, 185);
+}
+
+@font-face {
+    font-family: "Right Serif Mono";
+    src:
+    local("Right Serif Mono"),
+    url("otf/PPRightSerifMono-Regular.otf") format("opentype"),
+  }
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 1vw;
+    background-color: var(--black);
+    font-family: "Right Serif Mono", monospace;
+}
+
+#header {
+    color: var(--gray);
+    position: fixed;
+    top: 1vw;
+    left: 1vw;
+    font-size: 1.35vw;
+    /* background-color: var(--gray); */
+    border-radius: .25vw;
+}
+
+.ellipse-container {
+    /* transform: rotate(20deg); */
+    position: relative;
+    width: 400px;  /* Width of the ellipse */
+    height: 300px; /* Height of the ellipse */
+    animation: rotatecontainer 220s forwards ease-in-out infinite reverse;
+}
+
+.image {
+    position: absolute;
+    border-radius: .5vh;
+    width: 48px;
+    height: 48px;
+    object-fit: cover; /* Crop to square dimensions */
+    transition: 0.5s; /* Smooth transition */
+    animation: rotateimage 220s forwards ease-in-out infinite reverse;
+    visibility: visible; 
+    cursor: pointer;
+}
+
+#proj-info{
+    color: var(--gray);
+    position: fixed;
+    top: 5vh;
+    font-size: .9vw;
+    left: 1vw;
+}
+
+.project-info{
+    background-color: rgba(0, 0, 0, .7);
+    visibility: hidden;
+    opacity:0;
+    pointer-events: none;
+    font-size: .9vw;
+    width: 47vw;
+    top:4.9vh;
+    position: fixed;
+    left: 2.2vw;
+    transition: .3s;
+    padding: .2vw;
+}
+
+.opacity{
+    opacity: 1;
+}
+
+.image {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s; 
+  }
+  
+  .image.fade-in {
+    visibility: visible; 
+    opacity: .3;
+  }
+
+.filter-container, .sort-container, .info{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--gray);
+    font-size: 1vw;
+}
+
+.filter-container{
+    left: 1vw;
+    bottom: 1vw;
+}
+
+.sort-container{
+    right: 1vw;
+    bottom: 1vw;
+}
+
+.info{
+    right: 1vw;
+    top: 1vw; 
+    background-color: rgba(0, 0, 0, .5);
+    padding: .15vw;
+}
+
+button{
+    background-color: rgba(0, 0, 0, .5);
+    font-family: "Right Serif Mono", monospace;
+    font-size: 1vw;
+    color: var(--gray);
+    padding: .2vw;
+    cursor: pointer;
+    transition: .2s;
+    text-transform: uppercase;
+    width: 7.5vw;
+}
+
+#title{
+    font-size: 1vw;
+}
+
+#all{
+    width: 100%;
+}
+
+.columns {
+    display: flex;
+    gap: 20px; /* Adjust gap between columns */
+  }
+
+  .source, .subject {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .subject{
+    justify-content: center;
+  }
+
+  #sort{
+    background-color: rgba(0, 0, 0, .7);
+    padding: .2vw;
+  }
+
+  .deets{
+    font-size: .9vw;
+    width: 100%;
+    gap: 0px;
+  }
+
+  .info2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align content to the right */
+  }
+
+  .thumbnail{
+    margin-bottom: 9px;
+    border: .4px solid var(--gray);
+  }
+
+  .proto{
+    line-height: 1.55;
+  }
+
+  button:hover{
+    background-color: var(--gray)!important;
+    color: black!important;
+  }
+
+.source > .proto {
+    display: flex;
+    flex-direction: column;
+    /* Aligns the headers vertically */
+    width: 70px; /* Fixed width for the headers column */
+  }
+
+  .details{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    justify-content: flex-end;
+    line-height: 1.55;
+    width: 85px;
+  }
+
+.sorting-transition {
+    transition: 0.5s!important; /* Transition for sorting */
+}
+
+.filtering-transition {
+    transition: 0.5s!important; /* Transition for sorting */
+}
+
+.filter-container button.active {
+    background-color: rgba(186, 185, 185, .7);
+    color: black;
+  }
+
+  #saved{
+    background-color: rgba(186, 185, 185, .7);
+    color: black;
+  }
+  
+
+
+@keyframes rotatecontainer {
+    0%{
+        transform: translate(0px, 0px) rotate(0deg);  
+    }
+    25%{
+        transform: translate(0px, 0px) rotate(20deg);  
+    }
+    50%{
+        transform: translate(0px, 0px) rotate(0deg);  
+    }
+    75%{
+        transform: translate(0px, 0px) rotate(-20deg);   
+    }
+    100%{
+        transform: translate(0px, 0px) rotate(0deg);   
+    }
+}
+
+@keyframes rotateimage {
+    0%{
+        transform: translate(0px, 0px) rotate(0deg);  
+    }
+    25%{
+        transform: translate(0px, 0px) rotate(-20deg);  
+    }
+    50%{
+        transform: translate(0px, 0px) rotate(0deg);  
+    }
+    75%{
+        transform: translate(0px, 0px) rotate(20deg);   
+    }
+    100%{
+        transform: translate(0px, 0px) rotate(0deg);   
+    }
+}
+
+@keyframes rotatecontainer2 {
+    0%{
+        transform: translate(0px, 0px) rotate(0deg);  
+    }
+    25%{
+        transform: translate(0px, 0px) rotate(60deg);  
+    }
+    50%{
+        transform: translate(0px, 0px) rotate(0deg);  
+    }
+    75%{
+        transform: translate(0px, 0px) rotate(-60deg);   
+    }
+    100%{
+        transform: translate(0px, 0px) rotate(0deg);   
+    }
+}
+
+@keyframes rotateimage2 {
+    0%{
+        transform: translate(0px, 0px) rotate(0deg);  
+    }
+    25%{
+        transform: translate(0px, 0px) rotate(-60deg);  
+    }
+    50%{
+        transform: translate(0px, 0px) rotate(0deg);  
+    }
+    75%{
+        transform: translate(0px, 0px) rotate(60deg);   
+    }
+    100%{
+        transform: translate(0px, 0px) rotate(0deg);   
+    }
+}
+
+@media only screen and (max-width: 700px){
+    button, #title, #sort{
+        font-size: 2.25vw;
+    }
+    .deets{
+        font-size: 2vw;
+    }
+    #header{
+        font-size: 3vw;
+    }
+    #proj-info{
+        font-size: 2vw;  
+    }
+
+    .project-info{
+        font-size: 2vw;
+        width: 50vw;
+        left: 4vw;
+    }
+    button{
+        padding: 1vw;
+        width: 15vw;
+    }
+    .columns{
+        gap: 10px;
+    }
+
+}
+
+@media only screen and (max-width:400px){
+    #header{
+        font-size: 9vw;
+    }
+
+    .info, #proj-info, .filter-container, .sort-container{
+        display: none;
+    }
+    .ellipse-container {
+        animation: rotatecontainer2 100s forwards ease-in-out infinite reverse;
+    }
+    
+    .image {
+        animation: rotateimage2 100s forwards ease-in-out infinite reverse;
+    }
+    
+    
+}
